@@ -1,0 +1,28 @@
+tc1: validate navigation to the Homescreen and validting the UI
+expected results: 1. availability of search box
+                 2. amazon.in logo
+                3. availability of accounts and list
+                4. availability of returns and orders
+                5. availability of cart btn
+
+
+
+
+
+LLM: Github copiolet chat: will be able to generate the code based on the promt
+
+MCP Servers ()
+AI Agents: will be able to work on realtime browsers
+
+
+
+npm init -y
+npm install @playwright/test
+
+
+
+
+
+npm init playwright@latest
+
+
