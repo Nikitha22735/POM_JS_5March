@@ -166,7 +166,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         // expect(errorMsg).toBeTruthy()
     })
 
-    test('validate login with empty password field', async ({ page }) => {
+    test.only('validate login with empty password field', async ({ page }) => {
         const loginObjs = new Login(page)
         
         await loginObjs.navigateToAmazon()
