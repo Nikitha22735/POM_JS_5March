@@ -4,6 +4,7 @@ export class Home{
     
     constructor(page){
         this.searchBox = page.locator("input#twotabsearchtextbox")
+        this.searchicon = page.locator("#nav-search-submit-button")
         this.amazonLogo = page.locator("#nav-logo-sprites")
         this.accountsAndList = page.locator("//span[contains(text(),'Account & Lists')]")
         this.returnsAndOrders = page.locator("#nav-orders")
@@ -14,7 +15,12 @@ export class Home{
     // async variables(){
     //     const searchBox = page.locator("input#twotabsearchtextbox")
     // }
-
+    async enterTextTosearchBox(text){
+        await this.searchBox.fill(text)
+    }
+    async clickOnSearchBtn(){
+        await this.searchicon.click()
+    }
     async validateTheVisibilityOfSearchBox(){
         await expect(this.searchBox).not.toBeVisible()
     }

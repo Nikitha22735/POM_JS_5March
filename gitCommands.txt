@@ -1,0 +1,12 @@
+first create a banch in git hub
+  -- pull the latest changes from the git   
+  steps: git stash
+        git pull
+        git stash pop
+
+    -- git status : if u wat to see the branch uare in and all the updated files
+    -- git add .:  to add all the files at a time
+       or
+       git add filepath: to add single files
+
+    --

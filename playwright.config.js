@@ -15,7 +15,7 @@ import { chromium, defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  // fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   // forbidOnly: !!process.env.CI,
   workers: 6,
@@ -48,19 +48,19 @@ export default defineConfig({
       // use:{channel:'chrome'},
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-    {
-      name: "edge",
-      use: { ...devices['Desktop Chrome'], channel:'msedge' },
-    }
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
+    // {
+    //   name: "edge",
+    //   use: { ...devices['Desktop Chrome'], channel:'msedge' },
+    // }
 
     /* Test against mobile viewports. */
     // {
