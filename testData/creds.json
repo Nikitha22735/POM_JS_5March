@@ -1,0 +1,13 @@
+{
+   
+    "username1": "trainingplaywright@gmail.com",
+    "pw1":"Welcome@04",
+    "url":"'https://www.amazon.in/'",
+    "username2":"test@gmail.com",
+    "pw2":"welcome",
+    "creds":{
+        "us1":"us1_value",
+        "pw_1":"pw1"
+    }
+    
+}

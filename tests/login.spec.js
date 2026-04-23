@@ -1,14 +1,22 @@
 import { test, expect } from '@playwright/test'
 import { Login } from '../pages/login.js'
 import {Home} from '../pages/home.js'
+import fs from 'fs';
+
+const filePath = "testData/creds.json"
+const data = JSON.parse(fs.readFileSync(filePath,'utf-8'))
+// const data = fs.readFileSync(filePath,'utf-8')
 
 test.describe('Amazon Login Tests', () => {
-
-    test('validate complete login flow and search functionality', async ({ page }) => {
+//    let creds = ["trainingplaywright@gmail.com","Welcome@04" ]
+console.log(data)
+console.log(data.username1)
+console.log(data.creds.us1)
+    test.only('validate complete login flow and search functionality', async ({ page }) => {
         const loginObjs = new Login(page)
         const homeObjs = new Home(page)
         // Navigate and perform login
-        await loginObjs.navigateToAmazon()
+        await loginObjs.navigateToAmazon(data.url)
         await page.waitForTimeout(2000)
         await homeObjs.hoverOnAccountsAndList()
 
@@ -16,24 +24,25 @@ test.describe('Amazon Login Tests', () => {
         await page.waitForTimeout(2000)
         
         // Fill email and continue
-        await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
+        // await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
+        // await loginObjs.fillEmailOrMobile(creds[0])
+        await loginObjs.fillEmailOrMobile(data.username1)
         await loginObjs.clickContinueBtn()
         await page.waitForTimeout(2000)
         
         // Fill password and sign in
-        await loginObjs.fillPassword('Welcome@04')
+        // await loginObjs.fillPassword(creds[1])
+        await loginObjs.fillPassword(data.pw1)
         await loginObjs.clickSignInBtn()
         await page.waitForTimeout(3000)
         await homeObjs.hoverOnAccountsAndList()
         // Validate successful login
         await loginObjs.validateSignOutLinkIsVisible()
         await loginObjs.validateAccountLinkIsVisible()
-        
-        // Navigate to Mega Deal Days
        
         await page.waitForTimeout(2000)
     })
-
+    
     test('validate search and filter functionality', async ({ page }) => {
         const loginObjs = new Login(page)
         const homeObjs = new Home(page)
@@ -118,7 +127,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         expect(errorMsg).toBeTruthy()
     })
 
-    test.only('validate login with empty email field', async ({ page }) => {
+    test('validate login with empty email field', async ({ page }) => {
         const loginObjs = new Login(page)
         const homeObjs = new Home(page)
         
@@ -166,7 +175,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         // expect(errorMsg).toBeTruthy()
     })
 
-    test.only('validate login with empty password field', async ({ page }) => {
+    test('validate login with empty password field', async ({ page }) => {
         const loginObjs = new Login(page)
         
         await loginObjs.navigateToAmazon()
