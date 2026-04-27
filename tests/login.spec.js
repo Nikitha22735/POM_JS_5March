@@ -12,7 +12,7 @@ test.describe('Amazon Login Tests', () => {
 console.log(data)
 console.log(data.username1)
 console.log(data.creds.us1)
-    test('validate complete login flow and search functionality', async ({ page }) => {
+    test.only('validate complete login flow and search functionality', async ({ page }) => {
         const loginObjs = new Login(page)
         const homeObjs = new Home(page)
         // Navigate and perform login
