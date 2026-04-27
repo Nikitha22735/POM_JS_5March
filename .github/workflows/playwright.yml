@@ -1,18 +1,19 @@
-name: Playwright Tests
+name: Playwright Tests for 5th March
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:          ## to execut the testcase manually
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest      #which OS
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4       #git cloning
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
