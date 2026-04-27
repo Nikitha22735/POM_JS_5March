@@ -6,7 +6,7 @@ import {Home} from '../pages/home.js'
 test.describe('validating Home Screen Elements', ()=>{
    
 
-    test.only('validate navigation to the Homescreen and validting the UI', async({page})=>{
+    test('validate navigation to the Homescreen and validting the UI', async({page})=>{
         await page.goto("https://www.amazon.in/")
         await page.waitForTimeout(5000)
         const homeObjs = new Home(page)
@@ -25,7 +25,6 @@ test.describe('validating Home Screen Elements', ()=>{
         await page.waitForTimeout(5000) 
         const homeObjs = new Home(page)
         await homeObjs.validateTheVisibilityOfSearchBox()
-        await homeObjs.hoverOnAccountsAndList()
         await homeObjs.validateTheAvailabilityOfSignInBtn()
     })
      test('validate navigation to the Homescreen and validting the UI1', async({page})=>{

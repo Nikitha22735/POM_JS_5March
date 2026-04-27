@@ -42,6 +42,7 @@ export class Home{
     }
 
     async validateTheAvailabilityOfSignInBtn(){
+         await this.accountsAndList.click()
         await expect(this.signInBtn).toBeVisible()
     }
 
