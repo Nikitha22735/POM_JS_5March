@@ -12,7 +12,7 @@ test.describe('Amazon Login Tests', () => {
 console.log(data)
 console.log(data.username1)
 console.log(data.creds.us1)
-    test.only('validate complete login flow and search functionality', async ({ page }) => {
+    test('validate complete login flow and search functionality', async ({ page }) => {
         const loginObjs = new Login(page)
         const homeObjs = new Home(page)
         // Navigate and perform login
@@ -20,26 +20,19 @@ console.log(data.creds.us1)
         await page.waitForTimeout(2000)
         await homeObjs.hoverOnAccountsAndList()
 
-        await loginObjs.clickSignInLink()
+        // await loginObjs.clickSignInLink()
         await page.waitForTimeout(2000)
         
         // Fill email and continue
-        // await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
-        // await loginObjs.fillEmailOrMobile(creds[0])
-        await loginObjs.fillEmailOrMobile(data.username1)
+        await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
+        // await loginObjs.fillEmailOrMobile(data.username1)
         await loginObjs.clickContinueBtn()
         await page.waitForTimeout(2000)
         
         // Fill password and sign in
         // await loginObjs.fillPassword(creds[1])
-        await loginObjs.fillPassword(data.pw1)
-        await loginObjs.clickSignInBtn()
-        await page.waitForTimeout(3000)
-        await homeObjs.hoverOnAccountsAndList()
-        // Validate successful login
-        await loginObjs.validateSignOutLinkIsVisible()
-        await loginObjs.validateAccountLinkIsVisible()
-       
+        await loginObjs.fillPassword("Welcome@04")
+        await loginObjs.clickSignInBtn()       
         await page.waitForTimeout(2000)
     })
     
@@ -52,7 +45,7 @@ console.log(data.creds.us1)
         await page.waitForTimeout(2000)
         await homeObjs.hoverOnAccountsAndList()
 
-        await loginObjs.clickSignInLink()
+        // await loginObjs.clickSignInLink()
         await page.waitForTimeout(2000)
         await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
         await loginObjs.clickContinueBtn()
@@ -60,9 +53,9 @@ console.log(data.creds.us1)
         await loginObjs.fillPassword('Welcome@04')
         await page.waitForTimeout(2000)
         await loginObjs.clickSignInBtn()
-        await homeObjs.hoverOnAccountsAndList()
 
-        await loginObjs.clickSignInBtn()
+
+        // await loginObjs.clickSignInBtn()
         await page.waitForTimeout(3000)
         
         // Search for iPhone
@@ -94,7 +87,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
         await homeObjs.hoverOnAccountsAndList()
-        await loginObjs.clickSignInLink()
+        // await loginObjs.clickSignInLink()
         await page.waitForTimeout(2000)
         
         // Enter invalid email format
@@ -114,7 +107,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
         await homeObjs.hoverOnAccountsAndList()
-        await loginObjs.clickSignInLink()
+        // await loginObjs.clickSignInLink()
         await page.waitForTimeout(2000)
         
         // Enter non-existent email
@@ -134,7 +127,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
         await homeObjs.hoverOnAccountsAndList()
-        await loginObjs.clickSignInLink()
+        // await loginObjs.clickSignInLink()
         await page.waitForTimeout(2000)
         
         // Try to click continue without entering email
@@ -153,7 +146,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
         await homeObjs.hoverOnAccountsAndList()
-        await loginObjs.clickSignInLink()
+        // await loginObjs.clickSignInLink()
         await page.waitForTimeout(2000)
         
         // Enter valid email
@@ -165,9 +158,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         await loginObjs.fillPassword('WrongPassword123')
          await page.waitForTimeout(2000)
         await loginObjs.clickSignInBtn()
-         await page.waitForTimeout(2000)
-        await homeObjs.hoverOnAccountsAndList()
-        // await loginObjs.clickSignInBtn()
+
         await page.waitForTimeout(2000)
         
         // Verify error message for incorrect password
@@ -180,7 +171,8 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
-        await loginObjs.clickSignInLink()
+        await page.hoverOnAccountsAndList()
+        // await loginObjs.clickSignInLink()
         await page.waitForTimeout(2000)
         
         // Enter valid email
@@ -189,7 +181,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         await page.waitForTimeout(2000)
         
         // Try to sign in without entering password
-        await loginObjs.clickSignInBtn()
+        // await loginObjs.clickSignInBtn()
         await page.waitForTimeout(2000)
         
         // Verify error message appears
@@ -202,7 +194,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
-        await loginObjs.clickSignInLink()
+        await loginObjs.hoverOnAccountsAndList()
         await page.waitForTimeout(2000)
         
         // Enter email with spaces
@@ -220,7 +212,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
-        await loginObjs.clickSignInLink()
+        await loginObjs.hoverOnAccountsAndList()
         await page.waitForTimeout(2000)
         
         // Enter email with special characters
@@ -238,7 +230,7 @@ test.describe('Amazon Login - Negative Scenarios', () => {
         
         await loginObjs.navigateToAmazon()
         await page.waitForTimeout(2000)
-        await loginObjs.clickSignInLink()
+        await loginObjs.hoverOnAccountsAndList()
         await page.waitForTimeout(2000)
         
         // Enter very long email

@@ -38,7 +38,7 @@ export class Home{
     }
 
     async hoverOnAccountsAndList(){
-        await this.accountsAndList.hover()
+        await this.accountsAndList.click()
     }
 
     async validateTheAvailabilityOfSignInBtn(){

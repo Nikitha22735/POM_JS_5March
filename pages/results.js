@@ -5,7 +5,7 @@
 export class results{
     
     constructor(page){
-        this.addToCart =(product) =>  page.locator(`(//span[contains(text(),'${product}')])[1]/ancestor::div[@class='a-section a-spacing-small a-spacing-top-small']//button[@aria-label='Add to cart']`)
+        this.addToCart =(product) =>  page.locator(`(//span[contains(text(),'${product}')])[3]/ancestor::div[@class='a-section a-spacing-small a-spacing-top-small']//button[@aria-label='Add to cart']`)
         this.addeditemsCount =  page.locator("#nav-cart-count")
         
     }
