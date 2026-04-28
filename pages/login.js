@@ -18,8 +18,8 @@ export class Login{
         this.appliedFilterBtn = page.locator('#a-autoid-3-announce')
     }
 
-    async navigateToAmazon(url){
-        await this.page.goto(url)
+    async navigateToAmazon(){
+        await this.page.goto("https://www.amazon.in/")
     }
 
     async clickSignInLink(){

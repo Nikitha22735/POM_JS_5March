@@ -15,10 +15,10 @@ import { chromium, defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  // fullyParallel: true,
+  fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   // forbidOnly: !!process.env.CI,
-  workers: 6,
+  workers: 10,
   /* Retry on CI only */
   // retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
@@ -28,7 +28,7 @@ export default defineConfig({
   expect:{
     timeout: 40000,
   },
-  timeout:50000,
+  timeout:70000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */

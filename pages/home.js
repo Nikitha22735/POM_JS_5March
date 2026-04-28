@@ -38,10 +38,11 @@ export class Home{
     }
 
     async hoverOnAccountsAndList(){
-        await this.accountsAndList.hover()
+        await this.accountsAndList.click()
     }
 
     async validateTheAvailabilityOfSignInBtn(){
+         await this.accountsAndList.click()
         await expect(this.signInBtn).toBeVisible()
     }
 

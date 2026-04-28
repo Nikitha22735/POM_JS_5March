@@ -93,7 +93,7 @@ test('csv from imported file', async()=>{
 ////////////////////////////////excel////////////////////////////////////////
 // npm install xlsx
 import XLSX from 'xlsx'
-test.only('excel handling', async()=>{
+test('excel handling', async()=>{
     const excelFilePath = "testData/creds_xm.xlsx"
     const workBook = XLSX.readFile(excelFilePath)
     const sheet = workBook.Sheets['Sheet1'];
