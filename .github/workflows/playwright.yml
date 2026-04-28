@@ -47,7 +47,6 @@ jobs:
 
   deploy:
     needs: test
-    if: ${{ needs.test.result == 'success' }}
     runs-on: ubuntu-latest
 
     permissions:
