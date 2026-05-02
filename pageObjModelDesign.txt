@@ -1,0 +1,15 @@
+1. testsFolder
+2. pagesFolder
+3. testData: json, csv, xlsx
+4. playwright.config.js
+5.package.json
+6.yml file
+7. utils
+
+// debugging tec
+
+1. validating the report and the screenshot
+2.tarceViewer
+3. --headed
+4. page.pause   (debugger Moder)
+5. execution in slow Mode

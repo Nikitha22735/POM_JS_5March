@@ -12,14 +12,16 @@ export class Home{
         this.signInBtn = page.locator("//span[contains(text(),'Sign in') and @class='nav-action-inner']")
     }
 
-    // async variables(){
-    //     const searchBox = page.locator("input#twotabsearchtextbox")
-    // }
     async enterTextTosearchBox(text){
         await this.searchBox.fill(text)
     }
     async clickOnSearchBtn(){
         await this.searchicon.click()
+    }
+
+    async searchAProduct(text){
+        await this.enterTextTosearchBox(text)
+        await this.clickOnSearchBtn()
     }
     async validateTheVisibilityOfSearchBox(){
         await expect(this.searchBox).not.toBeVisible()
