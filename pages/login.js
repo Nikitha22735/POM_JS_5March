@@ -32,7 +32,7 @@ export class Login{
     }
 
     async clickContinueBtn(){
-        await this.continueBtn.dblclick()
+        await this.continueBtn.click()
     }
 
     async fillPassword(password){

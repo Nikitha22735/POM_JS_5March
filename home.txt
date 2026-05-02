@@ -26,3 +26,26 @@ npm install @playwright/test
 npm init playwright@latest
 
 
+
+if(condition){
+    conde1
+}
+else{
+    code2
+}
+
+condition? code1:code2
+process.env.CI ? 3 :2,
+
+
+
+1 setup
+10 testcases
+
+
+
+test1:  win1
+test2: win2
+test3: win3
+
+

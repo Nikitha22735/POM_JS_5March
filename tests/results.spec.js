@@ -8,9 +8,9 @@ test('adding product to cart', async({page}) =>{
 
     const homeObj = new Home(page)
     const resultsObj = new results(page)
-    await homeObj.enterTextTosearchBox("iphone")
+    await homeObj.enterTextTosearchBox("iphone 17 Pro")
     await homeObj.clickOnSearchBtn()
-    await resultsObj.clickOnAddToCart("iPhone")
+    await resultsObj.clickOnAddToCart("iphone 17")
     await page.waitForTimeout(3000)
     let count = await resultsObj.getTheCartItemsCount()
     await expect(count).toBe("1")

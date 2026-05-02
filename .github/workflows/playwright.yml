@@ -6,17 +6,18 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:          ## to execut the testcase manually
+  schedule:
+    - cron: * 21 * 5 4        #  min hour dayOfMonth month dayOfWeek
+    - cron: * 9 * * *
   
 
 jobs:
   test:
-    runs-on: ubuntu-latest      #which OS
+    runs-on: ubuntu-latest     #which OS
 
     steps:
       - name: Checkout Repository on git hub
         uses: actions/checkout@v4       #git cloning
-
-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,9 +26,6 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
-
-      - name: Install playwright
-        run: npm init playwright@latest
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -40,9 +38,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: playwright-report/
-
-
-
       
 
   deploy:
@@ -67,9 +62,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const testResult = '${{ needs.test.result }}';
+            const reportUrl = '${{ steps.deployment.outputs.page_url }}';
+            const status = testResult === 'success' ? '✅ Tests Passed!' : '❌ Tests Failed!';
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ Tests Passed! View Playwright Report: ${{ steps.deployment.outputs.page_url }}'
+              body: `${status}\n\n📊 View Playwright Report: ${reportUrl}`
             })

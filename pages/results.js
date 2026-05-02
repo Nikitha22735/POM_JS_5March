@@ -5,18 +5,23 @@
 export class results{
     
     constructor(page){
-        this.addToCart =(product) =>  page.locator(`(//span[contains(text(),'${product}')])[3]/ancestor::div[@class='a-section a-spacing-small a-spacing-top-small']//button[@aria-label='Add to cart']`)
+        this.addToCart =(product) =>  page.locator(`//span[contains(text(),'${product}')]/ancestor::div[@class='a-section a-spacing-small a-spacing-top-small']//button[@aria-label='Add to cart']`)
         this.addeditemsCount =  page.locator("#nav-cart-count")
         
     }
 
     async clickOnAddToCart(item){
-        await this.addToCart(item).click()
+        await this.addToCart(item).first().click()
     }
 
     async getTheCartItemsCount(){
         let items = await this.addeditemsCount.textContent()
         return items
+    }
+
+    async clickOncartIcon(){
+        await this.addeditemsCount.click()
+
     }
     
 }

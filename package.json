@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "description": "this is a practice project for playwright js",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "shoppingCart":"npx playwright test tests/shoppingCart.spec.js --headed --project=chromium",
+    "regression":"npx playwright test --grep=@regression --headed --debug",
+    "smoke":"npx playwright test --grep=@smoke1 --headed",
+    "home":"npx playwright test --grep=@home --headed",
+    "shoppingCart_2":"npx playwright test --grep=@shoppingCart --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
-    "@types/node": "^25.6.0"
+    "@types/node": "^25.6.0",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.7.1"
   },
   "dependencies": {
     "csv-parse": "^6.2.1",

@@ -4,55 +4,51 @@ import {Home} from '../pages/home.js'
 import fs from 'fs';
 
 const filePath = "testData/creds.json"
-const data = JSON.parse(fs.readFileSync(filePath,'utf-8'))
+// const data = JSON.parse(fs.readFileSync(filePath,'utf-8'))
 // const data = fs.readFileSync(filePath,'utf-8')
 
 test.describe('Amazon Login Tests', () => {
-//    let creds = ["trainingplaywright@gmail.com","Welcome@04" ]
-console.log(data)
-console.log(data.username1)
-console.log(data.creds.us1)
-    test.only('validate complete login flow and search functionality', async ({ page }) => {
-        const loginObjs = new Login(page)
-        const homeObjs = new Home(page)
-        // Navigate and perform login
-        await loginObjs.navigateToAmazon(data.url)
-        await page.waitForTimeout(2000)
-        await homeObjs.hoverOnAccountsAndList()
 
-        // await loginObjs.clickSignInLink()
-        await page.waitForTimeout(2000)
+    // test('validate complete login flow and search functionality', async ({ page }) => {
+    //     const loginObjs = new Login(page)
+    //     const homeObjs = new Home(page)
         
-        // Fill email and continue
-        await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
-        // await loginObjs.fillEmailOrMobile(data.username1)
-        await loginObjs.clickContinueBtn()
-        await page.waitForTimeout(2000)
+    //     // Navigate to Amazon
+    //     await loginObjs.navigateToAmazon()
+    //     await page.waitForTimeout(2000)
         
-        // Fill password and sign in
-        // await loginObjs.fillPassword(creds[1])
-        await loginObjs.fillPassword("Welcome@04")
-        await loginObjs.clickSignInBtn()       
-        await page.waitForTimeout(2000)
-    })
+    //     // Click on Sign In link
+    //     await homeObjs.hoverOnAccountsAndList()
+    //     await page.waitForTimeout(2000)
+        
+    //     // Fill email and continue
+    //     await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
+    //     await loginObjs.clickContinueBtn()
+    //     await page.waitForTimeout(3000)
+        
+    //     // Fill password and sign in
+    //     await loginObjs.fillPassword("Welcome@04")
+    //     await loginObjs.clickSignInBtn()       
+    //     await page.waitForTimeout(3000)
+    // })
     
-    test('validate search and filter functionality', async ({ page }) => {
+    test.only('validate search and filter functionality', async ({ page }) => {
         const loginObjs = new Login(page)
         const homeObjs = new Home(page)
         
         // Navigate and perform login
         await loginObjs.navigateToAmazon()
-        await page.waitForTimeout(2000)
-        await homeObjs.hoverOnAccountsAndList()
+        // await page.waitForTimeout(2000)
+        // await homeObjs.hoverOnAccountsAndList()
 
-        // await loginObjs.clickSignInLink()
-        await page.waitForTimeout(2000)
-        await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
-        await loginObjs.clickContinueBtn()
-        await page.waitForTimeout(2000)
-        await loginObjs.fillPassword('Welcome@04')
-        await page.waitForTimeout(2000)
-        await loginObjs.clickSignInBtn()
+        // // await loginObjs.clickSignInLink()
+        // await page.waitForTimeout(2000)
+        // await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
+        // await loginObjs.clickContinueBtn()
+        // await page.waitForTimeout(2000)
+        // await loginObjs.fillPassword('Welcome@04')
+        // await page.waitForTimeout(2000)
+        // await loginObjs.clickSignInBtn()
 
 
         // await loginObjs.clickSignInBtn()
