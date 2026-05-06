@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test'
-import { Home } from '../pages/home'
+import { Hom } from '../pages/home'
 import { results } from '../pages/results'
 import { shoppingCart } from '../pages/shoppingCart'
 
 
 test.describe('@shoppingCart validating Shopping cart', async() =>{
-
+    test.use({storageState:[]})
     test('validate added item in the cart',{tag:['@smoke','@regression']}, async({page})=>{
         await page.goto("https://www.amazon.in/")
 

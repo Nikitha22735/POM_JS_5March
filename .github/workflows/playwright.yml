@@ -2,9 +2,11 @@ name: Playwright Tests for 5th March
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, automation ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, automation ]
+  repository_dispatch:
+    types: [run-playwright-tests]
   workflow_dispatch:          ## to execut the testcase manually
   # schedule:
   #   - cron: * 21 * 5 4        #  min hour dayOfMonth month dayOfWeek
