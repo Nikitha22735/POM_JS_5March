@@ -53,9 +53,9 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
-        storageState:'testData/cookies.json',
+        // storageState:'testData/cookies.json',
        },
-       dependencies:['setup']
+      //  dependencies:['setup']
       // use:{channel:'chrome'},
     },
 
