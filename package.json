@@ -4,11 +4,14 @@
   "description": "this is a practice project for playwright js",
   "main": "index.js",
   "scripts": {
-    "shoppingCart":"npx playwright test tests/shoppingCart.spec.js --headed --project=chromium",
-    "regression":"npx playwright test --grep=@regression --headed --debug",
-    "smoke":"npx playwright test --grep=@smoke1 --headed",
-    "home":"npx playwright test --grep=@home --headed",
-    "shoppingCart_2":"npx playwright test --grep=@shoppingCart --headed"
+    "shoppingCart": "npx playwright test tests/shoppingCart.spec.js --headed --project=chromium",
+    "regression": "npx playwright test --grep=@regression --headed --debug",
+    "smoke": "npx playwright test --grep=@smoke1 --headed",
+    "home": "npx playwright test --grep=@home --headed",
+    "shoppingCart_2": "npx playwright test --grep=@shoppingCart --headed",
+    "allureGenarate": "npx allure generate allure-results --clean -o allure-report",
+    "allureOpen": "npx allure open allure-report",
+    "advancedSpecFile": "npx playwright test tests/advanced.spec.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +24,9 @@
     "allure-playwright": "^3.7.1"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.4.0",
     "csv-parse": "^6.2.1",
+    "dotenv": "^17.4.2",
     "xlsx": "^0.18.5"
   }
 }

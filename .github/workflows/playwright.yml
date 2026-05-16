@@ -6,9 +6,9 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:          ## to execut the testcase manually
-  # schedule:
-  #   - cron: * 21 * 5 4        #  min hour dayOfMonth month dayOfWeek
-  #   - cron: * 9 * * *
+  schedule:
+    - cron: '* 21 * 5 4'        #  min hour dayOfMonth month dayOfWeek
+    - cron: '* 9 * * *'
   
 
 jobs:
@@ -31,13 +31,16 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Tests
-        run: npx playwright test
+        run: |
+          export url=${{ variables.URL }}
+          npx playwright test
 
       - name: Upload Playwright Report (for Pages)
         if: always()
         uses: actions/upload-pages-artifact@v3
         with:
           path: playwright-report/
+
       
 
   deploy:

@@ -13,3 +13,71 @@
 3. --headed
 4. page.pause   (debugger Moder)
 5. execution in slow Mode
+
+
+
+
+
+===============================================
+
+****************************POM***********************************
+testFolder: for grouping testcases
+pageFolder: to gather locators and related Actions
+testData: input
+playwright.config.js: to tell how the execution should happen
+package.json: dependencies, scripts, metadata
+utils: for common methods
+reports:
+
+.gitHub/workflows/name.yml : CICD
+
+
+
+*************************BDDModel***********************************
+
+
+Feature: plan english
+StepsDefinition
+
+pageFolder: to gather locators and related Actions
+testData: input
+playwright.config.ts: to tell how the execution should happen
+tsconfig.json:  ts compilation
+package.json: dependencies, scripts, metadata
+cucumber.js: to provide BDD structure
+utils: for common methods
+reports:
+
+.gitHub/workflows/name.yml : CICD
+
+
+
+
+===================================
+1. under standing the application
+2. execution rate
+3. Team-
+4. cost to the company
+
+
+
+=================================
+
+selenium
+
+code -----   json  ------  webbrowsers
+
+
+
+playwright:
+
+code -----   webbrowsers
+
+
+
+============================
+
+copiolt: LLM - 
+
+MCP Servers
+AI Agents: 

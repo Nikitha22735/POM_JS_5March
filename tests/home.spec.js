@@ -10,15 +10,21 @@ test.describe('@home @smoke validating Home Screen Elements', ()=>{
     // test.use({viewport:{width:120, height:700}})
     test('validate navigation to the Homescreen and validting the UI',{tag:['@smoke1']}, async({page})=>{
         // await page.setViewportSize({width:120, height:700})
+        test.step('navigating to the Home screen', async()=>{
+             await page.goto("https://www.amazon.in/")
+        })
         await page.goto("https://www.amazon.in/")
         await page.waitForTimeout(5000)
         const homeObjs = new Home(page)
         await page.pause()
         // await page.locator("input#twotabsearchtextbox").type("iphone", {delay:3000})
-        await homeObjs.validateTheVisibilityOfSearchBox()
-        await homeObjs.validateTheVisibilityOfaccountsAndList()
-        await homeObjs.validateTheVisibilityOfamazonLogo()
-        await homeObjs.validateTheVisibilityOfcartBtn()
+        test.step('validating the UI elements on the Home screen', async()=>{
+             await homeObjs.validateTheVisibilityOfSearchBox()
+            await homeObjs.validateTheVisibilityOfaccountsAndList()
+            await homeObjs.validateTheVisibilityOfamazonLogo()
+            await homeObjs.validateTheVisibilityOfcartBtn()
+        })
+       
         await page.setViewportSize({width:120, height:700})
         await homeObjs.validateTheVisibilityOfreturnsAndOrders()
 
