@@ -2,6 +2,7 @@
 import { test, expect } from '@playwright/test'
 import fs from 'fs';
 import { parse } from 'csv-parse/sync'
+import dotenv from 'dotenv'
 // import { getCSVData } from '../utils/csvHandling'
 
 
@@ -29,18 +30,18 @@ const filePathCSV = "testData/creds_csv.csv"
 // })
 
 // ////////////////////////////////////////////////////Arrays/////////////////////////////////////////////
-const arr =[["us1","pw1","success"],["us2","pw2","unsuccess"], ["us3","pw3","unsuccess"]]
-// a = "hello"
-for (let i=0; i < arr.length; i++){
-test(`data parameterisation ${i}`, async()=>{
-    console.log(arr[i][0])
-    console.log(arr[i][1])
-    console.log(arr[i][2])
-    console.log("===============================")
+// const arr =[["us1","pw1","success"],["us2","pw2","unsuccess"], ["us3","pw3","unsuccess"]]
+// // a = "hello"
+// for (let i=0; i < arr.length; i++){
+// test(`data parameterisation ${i}`, async()=>{
+//     console.log(arr[i][0])
+//     console.log(arr[i][1])
+//     console.log(arr[i][2])
+//     console.log("===============================")
 
-})
+// })
 
-}
+// }
 
 // /////////////////method2////////////////////////
 // for (let i of arr){
@@ -103,3 +104,20 @@ test(`data parameterisation ${i}`, async()=>{
 //     const excelData = XLSX.utils.sheet_to_json(sheet)
 //     console.log(excelData)
 // })
+
+
+
+
+/////////////////////////////////dotenv/////////////////////////////
+// npm install dotenv
+test("commandLine", async() => {
+    // dotenv.config({path:"./.env.test"})
+    dotenv.config({path: `./.env.${process.env.ENVIRONMENT}`})
+    const username = process.env.username
+    const pw = process.env.password
+    const url =process.env.url
+    console.log(username)
+    console.log(pw)
+    console.log(url)
+
+})

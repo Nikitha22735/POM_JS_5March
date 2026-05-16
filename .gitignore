@@ -7,3 +7,7 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 package-lock.json/
+allure-report
+
+allure-results
+tests/api.spec.js-snapshots

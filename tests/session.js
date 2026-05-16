@@ -1,9 +1,11 @@
 import { test as setup, expect, firefox } from '@playwright/test'
 import { Login } from '../pages/login'
 import { Home } from '../pages/home'
+import dotenv from 'dotenv'
 
 const authFile = 'testData/cookies.json'
-setup.use({browserName: process.env.browsern})
+
+dotenv.config({path: `./.env.${process.env.ENVIRONMENT}`})
 setup('authenticator', async ({page}) => {
         const loginObjs = new Login(page)
         const homeObjs = new Home(page)
@@ -17,12 +19,12 @@ setup('authenticator', async ({page}) => {
         await page.waitForTimeout(2000)
         
         // Fill email and continue
-        await loginObjs.fillEmailOrMobile('trainingplaywright@gmail.com')
+        await loginObjs.fillEmailOrMobile(process.env.username)
         await loginObjs.clickContinueBtn()
         await page.waitForTimeout(3000)
         
         // Fill password and sign in
-        await loginObjs.fillPassword("Welcome@04")
+        await loginObjs.fillPassword(process.env.password)
         await loginObjs.clickSignInBtn()       
         await page.waitForTimeout(3000)
 

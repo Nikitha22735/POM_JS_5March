@@ -1,9 +1,11 @@
-import { expect } from "@playwright/test"
+import { expect, Locator } from "@playwright/test"
 
-export class Home{
-    
+dotenv.config({path: `./.env.${process.env.ENVIRONMENT}`})
+export class  Home{
+    // searchBox: Locator
     constructor(page){
-        this.searchBox = page.locator("input#twotabsearchtextbox")
+        // this.searchBox = page.locator("input#twotabsearchtextbox")
+         this.searchBox = page.locator(process.env.searchBoxLocator)
         this.searchicon = page.locator("#nav-search-submit-button")
         this.amazonLogo = page.locator("#nav-logo-sprites")
         this.accountsAndList = page.locator("//span[contains(text(),'Account & Lists')]")
